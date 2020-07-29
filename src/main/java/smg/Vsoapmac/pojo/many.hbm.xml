@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<!-- 
+	元数据映射文件
+ -->
+<class name="smg.Vsoapmac.pojo.DAO.bean.many" table="many">
+	<id name="many_id" column="many_id">
+		<generator class="native"></generator>
+	</id>
+	<property name="many_name" column="many_name"></property>
+	<!-- 
+		设置多对一 
+		lazy="false" fetch="join" 设置懒加载，预防出现session is close 问题 
+	 -->
+	<many-to-one name="one" lazy="false" fetch="join" column="one_id" class="smg.Vsoapmac.pojo.DAO.bean.one"></many-to-one>
+</class>
+</hibernate-mapping>

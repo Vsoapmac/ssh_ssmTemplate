@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace：命名空间，用于隔离sql，用于动态代理 -->
+<mapper namespace="smg.Vsoapmac.springmvc.mapping.cityMapping">
+	<select id="showallcity"
+		resultType="smg.Vsoapmac.springmvc.bean.city">
+		Select * from city
+	</select>
+
+	<select id="showcityByid" parameterType="Integer"
+		resultType="smg.Vsoapmac.springmvc.bean.city">
+		Select * from city where id = #{ID}
+	</select>
+
+	<insert id="addItem"
+		parameterType="smg.Vsoapmac.springmvc.bean.city">
+		INSERT INTO city(NAME,countryCode)
+		VALUES(#{name},#{countryCode});
+	</insert>
+</mapper>

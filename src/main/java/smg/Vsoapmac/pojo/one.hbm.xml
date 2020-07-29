@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<!-- 
+	元数据映射文件
+ -->
+<class name="smg.Vsoapmac.pojo.DAO.bean.one" table="one">
+	<id name="one_id" column="one_id">
+		<generator class="native"></generator>
+	</id>
+	<property name="one_name" column="one_name"></property>
+	<!-- xml设置一对多 -->
+	<set name="manyset" cascade="save-update">
+		<key column="one_id"></key>
+		<one-to-many class="smg.Vsoapmac.pojo.DAO.bean.many"/>
+	</set>
+	<!-- 设置一对一 -->
+	<one-to-one name="anr" class="smg.Vsoapmac.pojo.DAO.bean.anotherone" ></one-to-one>
+</class>
+</hibernate-mapping>
